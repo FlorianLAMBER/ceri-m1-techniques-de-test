@@ -12,7 +12,6 @@ public class IPokedexFactoryTest {
     private IPokedexFactory IPokedexFactoryyMock;
     private IPokedex IPokedexMock;
 
-
     @Before
     public void setUp() {
         IPokedexFactoryyMock = mock(IPokedexFactory.class);
