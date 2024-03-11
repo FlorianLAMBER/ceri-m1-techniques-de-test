@@ -33,14 +33,9 @@ jobs:
       - run:
           name: deploy
           command: '#e.g. ./deploy.sh'
-workflows:
-  upload-to-codecov:
-    jobs:
-      - checkout
       - codecov/upload
-  build-and-test:
+workflow:
+  version: 2.1
+  build-test:
     jobs:
-      - test-java
-    # - deploy:
-    #     requires:
-    #       - test-java
+      - build
