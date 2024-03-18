@@ -19,22 +19,23 @@ public class IPokemonTrainerFactoryTest {
 
     @Before
     public void setUp() {
-        IPokemonTrainerFactoryMock = mock(IPokemonTrainerFactory.class);
-        PokemonTrainerMock = mock(PokemonTrainer.class);
-        teamMystic = MYSTIC;
-        pokedexFactoryMock = mock(IPokedexFactory.class);
+        IPokemonTrainerFactoryMock = new PokemonTrainerFactory();
+        PokemonTrainerMock = IPokemonTrainerFactoryMock.createTrainer("Cynthia",MYSTIC,new PokedexFactory());
 
-        when(PokemonTrainerMock.getName()).thenReturn("Cynthia");
-        when(PokemonTrainerMock.getTeam()).thenReturn(MYSTIC);
-        when(IPokemonTrainerFactoryMock.createTrainer("Cynthia", teamMystic, pokedexFactoryMock)).thenReturn(PokemonTrainerMock);
+        //teamMystic = MYSTIC;
+        //pokedexFactoryMock = new PokedexFactory();
+
+        //when(PokemonTrainerMock.getName()).thenReturn("Cynthia");
+        //when(PokemonTrainerMock.getTeam()).thenReturn(MYSTIC);
+        //when(IPokemonTrainerFactoryMock.createTrainer("Cynthia", teamMystic, pokedexFactoryMock)).thenReturn(PokemonTrainerMock);
     }
 
 
 
     @Test
     public void IPokemonTrainerFactoryTest() throws PokedexException {
-        PokemonTrainer PokemonTrainerMockIII= IPokemonTrainerFactoryMock.createTrainer("Cynthia",teamMystic,pokedexFactoryMock);
-        assertEquals(PokemonTrainerMockIII.getName(), "Cynthia");
-        assertEquals(PokemonTrainerMockIII.getTeam(), MYSTIC);
+        PokemonTrainerMock = IPokemonTrainerFactoryMock.createTrainer("Cynthia",MYSTIC,new PokedexFactory());
+        assertEquals(PokemonTrainerMock.getName(), "Cynthia");
+        assertEquals(PokemonTrainerMock.getTeam(), MYSTIC);
     }
 }

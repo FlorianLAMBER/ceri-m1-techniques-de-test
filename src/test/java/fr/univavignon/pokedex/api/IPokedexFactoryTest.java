@@ -14,15 +14,16 @@ public class IPokedexFactoryTest {
 
     @Before
     public void setUp() {
-        IPokedexFactoryyMock = mock(IPokedexFactory.class);
-        IPokedexMock = mock(IPokedex.class);
-        when(IPokedexMock.size()).thenReturn(0);
-        when(IPokedexFactoryyMock.createPokedex(any(),any())).thenReturn(IPokedexMock);
+        IPokedexFactoryyMock = new PokedexFactory();
+        //IPokedexMock = mock(IPokedex.class);
+        //when(IPokedexMock.size()).thenReturn(0);
+        //when(IPokedexFactoryyMock.createPokedex(any(),any())).thenReturn(IPokedexMock);
     }
 
 
     @Test
     public void IPokedexFactoryTestTest() throws PokedexException {
-        assertEquals(IPokedexFactoryyMock.createPokedex(any(),any()).size(), 0);
+        IPokedexMock = IPokedexFactoryyMock.createPokedex(new PokemonMetadataProvider(), new PokemonFactory());
+        assertEquals(IPokedexMock.size(), 0);
     }
 }
