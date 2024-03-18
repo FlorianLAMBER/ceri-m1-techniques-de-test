@@ -31,7 +31,9 @@ jobs:
           command: mvn verify
       # Persist the Jacoco execution file to the workspace
       - codecov/upload
-
+      - run:
+          name: Testo
+          command: mvn site
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows

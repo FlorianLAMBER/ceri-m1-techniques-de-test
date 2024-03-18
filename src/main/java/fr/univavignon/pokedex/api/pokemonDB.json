@@ -1,0 +1,26 @@
+[
+  {
+    "Index": 0,
+    "Nom": "Bulbizarre",
+    "Attaque": 126,
+    "Défense": 126,
+    "Endurance": 90,
+    "CP": 613,
+    "HP": 64,
+    "Dust": 4000,
+    "Candy": 4,
+    "IV": "56%"
+  },
+  {
+    "Index": 133,
+    "Nom": "Aquali",
+    "Attaque": 186,
+    "Défense": 168,
+    "Endurance": 260,
+    "CP": 2729,
+    "HP": 202,
+    "Dust": 5000,
+    "Candy": 4,
+    "IV": "100%"
+  }
+]
