@@ -13,16 +13,16 @@ public class IPokemonFactoryTest {
 
     @Before
     public void setUp() {
-        pokemonFactoryMock = mock(IPokemonFactory.class);
-        Pokemon expectedPokemon = new Pokemon(1, "Bulbizarre", 45, 49, 49, 0, 0, 0, 0,0);
-        when(pokemonFactoryMock.createPokemon(1, 45, 49, 49,0)).thenReturn(expectedPokemon);
+        pokemonFactoryMock = new PokemonFactory();
+        Pokemon expectedPokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4,56);
+        //when(pokemonFactoryMock.createPokemon(1, 45, 49, 49,0)).thenReturn(expectedPokemon);
     }
 
     @Test
     public void testCreatePokemon() {
-        Pokemon expectedPokemon = new Pokemon(1, "Bulbizarre", 45, 49, 49, 0, 0, 0, 0,0);
+        Pokemon expectedPokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4,56);
 
-        Pokemon actualPokemon = pokemonFactoryMock.createPokemon(1, 45, 49, 49,0);
+        Pokemon actualPokemon = pokemonFactoryMock.createPokemon(0, 613, 64, 4000,4);
 
         assertEquals(expectedPokemon.getDust(), actualPokemon.getDust());
         assertEquals(expectedPokemon.getHp(), actualPokemon.getHp());

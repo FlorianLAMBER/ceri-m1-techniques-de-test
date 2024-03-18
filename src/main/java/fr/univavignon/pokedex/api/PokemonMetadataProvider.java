@@ -8,11 +8,13 @@ import com.google.gson.JsonParser;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static fr.univavignon.pokedex.api.getPokemonByIndex.getPokemonByIndexI;
+
 public class PokemonMetadataProvider implements IPokemonMetadataProvider {
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
         try {
-            JsonObject pokemon = getPokemonByIndex(index);
+            JsonObject pokemon = getPokemonByIndexI(index);
             if (pokemon != null) {
                 System.out.println("Pokemon trouvé : " + pokemon.get("Nom").getAsString());
                 return new PokemonMetadata(index, pokemon.get("Nom").getAsString(),pokemon.get("Attaque").getAsInt(),
@@ -29,17 +31,5 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
     }
 
 
-    public static JsonObject getPokemonByIndex(int index) throws IOException {
-        JsonParser parser = new JsonParser();
-        JsonArray pokemonsArray = parser.parse(new FileReader("src/main/java/fr/univavignon/pokedex/api/pokemonDB.json")).getAsJsonArray();
 
-        for (JsonElement element : pokemonsArray) {
-            JsonObject pokemon = element.getAsJsonObject();
-            int pokemonIndex = pokemon.get("Index").getAsInt();
-            if (pokemonIndex == index) {
-                return pokemon;
-            }
-        }
-        return null;
-    }
 }
