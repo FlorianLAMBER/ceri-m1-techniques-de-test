@@ -1,6 +1,8 @@
 # LAMBERT Florian
 # groupe 1: ILSEN-CLASSIQUE
 
+[![checkstyle](https://img.shields.io/badge/checkstyle-failing-red)
+
 [![codecov](https://codecov.io/gh/FlorianLAMBER/ceri-m1-techniques-de-test/graph/badge.svg?token=009AMG2WUT)](https://codecov.io/gh/FlorianLAMBER/ceri-m1-techniques-de-test)
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/FlorianLAMBER/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/FlorianLAMBER/ceri-m1-techniques-de-test/tree/master)
