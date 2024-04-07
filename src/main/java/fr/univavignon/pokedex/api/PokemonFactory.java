@@ -4,13 +4,13 @@ import com.google.gson.JsonObject;
 
 import java.io.IOException;
 
-import static fr.univavignon.pokedex.api.getPokemonByIndex.getPokemonByIndexI;
+import static fr.univavignon.pokedex.api.PokemonFetcher.getPokemonByIndex;
 
 public class PokemonFactory implements IPokemonFactory{
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
         try {
-            JsonObject pokemon = getPokemonByIndexI(index);
+            JsonObject pokemon = getPokemonByIndex(index);
             if (pokemon != null) {
                 System.out.println("Metadata Pokemon trouvé : " + pokemon.get("Nom").getAsString());
 

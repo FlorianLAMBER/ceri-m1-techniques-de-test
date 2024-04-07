@@ -12,23 +12,28 @@ jobs:
           name: Test
           command: mvn verify
 
-      # Exécute Checkstyle et génère le rapport HTML
+      # Génère la Javadoc
+      - run:
+          name: Generate Javadoc
+          command: mvn javadoc:javadoc
+
+      # Exécute Checkstyle
       - run:
           name: Checkstyle
           command: |
             sudo apt-get update
             sudo apt-get install -y checkstyle
             checkstyle -c checkstyle.xml src/main/java
-            # Génère le rapport HTML dans le répertoire checkstyle-report
-            checkstyle -c checkstyle.xml -f html -o checkstyle-report/checkstyle.html src/main/java
 
-      # Persiste le rapport HTML comme artefact
-      - persist_to_workspace:
-          root: .
-          paths:
-            - checkstyle-report
-
-workflows:
-  sample:
-    jobs:
-      - build-and-test
+      # Déploie la Javadoc sur GitHub Pages
+      - run:
+          name: DeployJavadoc
+          command: |
+            git config --global user.email "your-email@example.com"
+            git config --global user.name "Your Name"
+            mv target/site/apidocs/* .
+            git init
+            git add .
+            git commit -m "Deploy Javadoc"
+            git checkout -b gh-pages
+            git push --force "https://github.com/your-username/your-repo.git" gh-pages
